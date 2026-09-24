@@ -1,15 +1,18 @@
+```tsx
 'use client'
 
 import { Sparkles } from 'lucide-react'
 import { useParallax } from '@/hooks/use-parallax'
 
-export function HeroSection() {
+export function HeroSection({
+  onStartMission,
+}: {
+  onStartMission: () => void
+}) {
   const { ref, progress } = useParallax<HTMLDivElement>()
 
   const startMission = () => {
-    document
-      .getElementById('missao')
-      ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    onStartMission()
   }
 
   return (
@@ -29,8 +32,8 @@ export function HeroSection() {
           LARGE FLOATING MASCOT STAGE
           Full-body baby superhero cutout overlapping the hero section.
          ============================================================ */}
-        <div
-  className="relative z-20 mx-auto -mb-24 w-full max-w-[400px] sm:-mb-28 sm:max-w-[500px]"
+      <div
+        className="relative z-20 mx-auto -mb-24 w-full max-w-[400px] sm:-mb-28 sm:max-w-[500px]"
         style={{
           transform: `translateY(${progress * -32}px)`,
           transition: 'transform 0.1s linear',
@@ -60,18 +63,18 @@ export function HeroSection() {
         </p>
 
         <h1 className="font-display text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-  <span className="block">
-    O Incrível
-  </span>
+          <span className="block">
+            O Incrível
+          </span>
 
-  <span className="block whitespace-nowrap bg-gradient-to-r from-hero-red via-hero-gold to-hero-red bg-[length:200%_auto] bg-clip-text text-transparent text-[clamp(2rem,10vw,3.75rem)] [animation:shimmer_3s_linear_infinite]">
-  Miguel Levi
-</span>
+          <span className="block whitespace-nowrap bg-gradient-to-r from-hero-red via-hero-gold to-hero-red bg-[length:200%_auto] bg-clip-text text-transparent text-[clamp(2rem,10vw,3.75rem)] [animation:shimmer_3s_linear_infinite]">
+            Miguel Levi
+          </span>
 
-  <span className="block whitespace-nowrap">
-    completa 1 aninho!
-  </span>
-</h1>
+          <span className="block whitespace-nowrap">
+            completa 1 aninho!
+          </span>
+        </h1>
 
         <p className="mx-auto mt-6 max-w-lg text-pretty text-lg leading-8 text-white/80">
           Prepare seus poderes! Uma missão muito especial está prestes a
@@ -97,3 +100,4 @@ export function HeroSection() {
     </section>
   )
 }
+```
