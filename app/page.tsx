@@ -49,7 +49,5 @@ return (
     {!loading && <MusicToggle />}
   </main>
 </>
-```
-
 )
 }
