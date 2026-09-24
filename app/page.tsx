@@ -11,37 +11,45 @@ import { LocationRsvp } from '@/components/location-rsvp'
 import { MusicToggle } from '@/components/music-toggle'
 
 export default function Page() {
-  const [loading, setLoading] = useState(true)
+const [loading, setLoading] = useState(true)
 
-  // Lock scroll while the boot sequence plays.
-  useEffect(() => {
-    document.body.style.overflow = loading ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [loading])
+useEffect(() => {
+document.body.style.overflow = loading ? 'hidden' : ''
 
-  return (
-    <>
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+```
+return () => {
+  document.body.style.overflow = ''
+}
+```
 
-      <main className="relative min-h-screen overflow-hidden">
-        <ParticlesBackground />
+}, [loading])
 
-        <div
-          className={`relative z-10 transition-opacity duration-1000 ${
-            loading ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          <HeroSection />
-          <EventInfo />
-          <CountdownSection />
-          <GiftSection />
-          <LocationRsvp />
-        </div>
+return (
+<>
+{loading && (
+<LoadingScreen onComplete={() => setLoading(false)} />
+)}
 
-        {!loading && <MusicToggle />}
-      </main>
-    </>
-  )
+```
+  <main className="relative min-h-screen overflow-hidden">
+    <ParticlesBackground />
+
+    <div
+      className={`relative z-10 transition-opacity duration-1000 ${
+        loading ? 'opacity-0' : 'opacity-100'
+      }`}
+    >
+      <HeroSection />
+      <EventInfo />
+      <CountdownSection />
+      <GiftSection />
+      <LocationRsvp />
+    </div>
+
+    {!loading && <MusicToggle />}
+  </main>
+</>
+```
+
+)
 }
