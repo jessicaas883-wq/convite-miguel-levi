@@ -1,3 +1,4 @@
+```tsx
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -17,7 +18,6 @@ export function LoadingScreen({
   onComplete: () => void
 }) {
   const [progress, setProgress] = useState(0)
-  const [ready, setReady] = useState(false)
 
   useEffect(() => {
     const start = performance.now()
@@ -32,24 +32,22 @@ export function LoadingScreen({
           ? 4 * t * t * t
           : 1 - Math.pow(-2 * t + 2, 3) / 2
 
-      setProgress(Math.round(eased * 100))
+      const currentProgress = Math.round(eased * 100)
+
+      setProgress(currentProgress)
 
       if (t < 1) {
         raf = requestAnimationFrame(tick)
       } else {
         setProgress(100)
-        setReady(true)
+        onComplete()
       }
     }
 
     raf = requestAnimationFrame(tick)
 
     return () => cancelAnimationFrame(raf)
-  }, [])
-
-  const startMission = () => {
-    onComplete()
-  }
+  }, [onComplete])
 
   return (
     <div
@@ -120,18 +118,8 @@ export function LoadingScreen({
             <span>{progress}%</span>
           </div>
         </div>
-
-        {ready && (
-          <button
-            type="button"
-            onClick={startMission}
-            className="mt-7 inline-flex items-center gap-3 rounded-full bg-hero-red px-8 py-4 text-base font-black uppercase tracking-wide text-primary-foreground shadow-[0_0_40px_rgba(227,38,46,0.45)] transition-all duration-300 hover:scale-105 active:scale-95 sm:px-10 sm:py-5 sm:text-lg"
-          >
-            <span aria-hidden>🚨</span>
-            Iniciar Missão
-          </button>
-        )}
       </div>
     </div>
   )
 }
+```
