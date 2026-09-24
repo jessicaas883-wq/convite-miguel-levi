@@ -16,11 +16,9 @@ const [loading, setLoading] = useState(true)
 useEffect(() => {
 document.body.style.overflow = loading ? 'hidden' : ''
 
-```
 return () => {
   document.body.style.overflow = ''
 }
-```
 
 }, [loading])
 
@@ -30,7 +28,6 @@ return (
 <LoadingScreen onComplete={() => setLoading(false)} />
 )}
 
-```
   <main className="relative min-h-screen overflow-hidden">
     <ParticlesBackground />
 
