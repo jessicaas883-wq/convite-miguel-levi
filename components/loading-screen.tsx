@@ -25,7 +25,6 @@ const start = performance.now()
 const duration = 4200
 let raf = 0
 
-```
 const tick = (now: number) => {
   const t = Math.min(1, (now - start) / duration)
   const eased =
@@ -44,7 +43,6 @@ const tick = (now: number) => {
 raf = requestAnimationFrame(tick)
 
 return () => cancelAnimationFrame(raf)
-```
 
 }, [])
 
@@ -60,7 +58,6 @@ className={cn(
 )}
 > <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#4f0f14_0%,#160708_45%,#090909_100%)]" />
 
-```
   <div className="relative flex w-full max-w-xl flex-col items-center justify-center px-6 py-10 text-center">
     <div className="absolute h-72 w-72 rounded-full bg-hero-gold/20 blur-3xl animate-[heroHalo_3s_ease-in-out_infinite]" />
 
