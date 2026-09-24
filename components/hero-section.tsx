@@ -64,9 +64,9 @@ export function HeroSection() {
     O Incrível
   </span>
 
-  <span className="block bg-gradient-to-r from-hero-red via-hero-gold to-hero-red bg-[length:200%_auto] bg-clip-text text-transparent [animation:shimmer_3s_linear_infinite]">
-    Miguel Levi
-  </span>
+  <span className="block whitespace-nowrap bg-gradient-to-r from-hero-red via-hero-gold to-hero-red bg-[length:200%_auto] bg-clip-text text-transparent text-[clamp(2rem,10vw,3.75rem)] [animation:shimmer_3s_linear_infinite]">
+  Miguel Levi
+</span>
 
   <span className="block whitespace-nowrap">
     completa 1 aninho!
