@@ -51,7 +51,6 @@ export default function Page() {
           <ParticlesBackground />
 
           <div className="relative z-10">
-            <HeroSection onStartMission={handleStartMission} />
             <EventInfo />
             <CountdownSection />
             <GiftSection />
