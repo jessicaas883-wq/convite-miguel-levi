@@ -1,14 +1,20 @@
 'use client'
 
 import { Sparkles } from 'lucide-react'
+import { useParallax } from '@/hooks/use-parallax'
 
 export function HeroSection({
   onStartMission,
 }: {
   onStartMission: () => void
 }) {
+  const { ref, progress } = useParallax<HTMLDivElement>()
+
   return (
-    <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-4 text-center sm:px-6 sm:py-20">
+    <section
+      ref={ref}
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-4 text-center sm:px-6 sm:py-20"
+    >
       <div className="animate-float mb-2 inline-flex items-center gap-2 rounded-full border border-yellow-500/40 bg-white/[0.05] px-3 py-1 backdrop-blur-md sm:mb-6 sm:px-4 sm:py-1.5">
         <Sparkles className="h-3.5 w-3.5 text-yellow-400 sm:h-4 sm:w-4" />
 
@@ -17,7 +23,13 @@ export function HeroSection({
         </span>
       </div>
 
-      <div className="relative z-20 mx-auto -mb-12 w-full max-w-[240px] sm:-mb-28 sm:max-w-[500px]">
+      <div
+        className="relative z-20 mx-auto -mb-12 w-full max-w-[240px] sm:-mb-28 sm:max-w-[500px]"
+        style={{
+          transform: `translateY(${progress * -20}px)`,
+          transition: 'transform 0.1s linear',
+        }}
+      >
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/25 blur-[60px] sm:blur-[80px]" />
 
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-400/20 blur-[45px] sm:blur-[60px]" />
