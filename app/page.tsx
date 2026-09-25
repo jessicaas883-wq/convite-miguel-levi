@@ -56,11 +56,12 @@ export default function Page() {
         </p>
 
         <button
-          type="button"
-          className="mt-10 rounded-full bg-red-500 px-12 py-5 text-xl font-black uppercase tracking-wide text-white"
-        >
-          🚨 Iniciar a Missão
-        </button>
+  type="button"
+  className="animate-pulse-glow group mt-10 inline-flex items-center gap-3 rounded-full bg-red-500 px-12 py-5 text-xl font-black uppercase tracking-wide text-white shadow-[0_0_40px_rgba(227,38,46,0.45)] transition-all duration-300 hover:scale-105 active:scale-95"
+>
+  <span aria-hidden>🚨</span>
+  Iniciar a Missão
+</button>
       </div>
     </main>
   )
