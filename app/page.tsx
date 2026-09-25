@@ -1,12 +1,16 @@
 'use client'
 
 import { Sparkles } from 'lucide-react'
+import { useParallax } from '@/hooks/use-parallax'
 
 export default function Page() {
-  const startMission = () => {}
+  const { ref, progress } = useParallax<HTMLDivElement>()
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center px-6 pb-28 pt-20 text-center">
+    <main
+      ref={ref}
+      className="relative flex min-h-screen flex-col items-center justify-center px-6 pb-28 pt-20 text-center"
+    >
       <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/40 bg-white/[0.05] px-4 py-1.5">
         <Sparkles className="h-4 w-4 text-yellow-400" />
 
@@ -15,7 +19,13 @@ export default function Page() {
         </span>
       </div>
 
-      <div className="relative mx-auto w-full max-w-[400px]">
+      <div
+        className="relative mx-auto w-full max-w-[400px]"
+        style={{
+          transform: `translateY(${progress * -32}px)`,
+          transition: 'transform 0.1s linear',
+        }}
+      >
         <img
           src="/mascote-um.png"
           alt="Miguel, o bebê super-herói"
@@ -39,7 +49,6 @@ export default function Page() {
 
         <button
           type="button"
-          onClick={startMission}
           className="mt-10 rounded-full bg-red-500 px-12 py-5 text-xl font-black uppercase tracking-wide text-white"
         >
           🚨 Iniciar a Missão
