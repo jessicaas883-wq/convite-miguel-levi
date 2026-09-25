@@ -19,19 +19,19 @@ export default function Page() {
         </span>
       </div>
 
-      <div
-        className="animate-float-slow relative mx-auto w-full max-w-[400px]"
-        style={{
-          transform: `translateY(${progress * -32}px)`,
-          transition: 'transform 0.1s linear',
-        }}
-      >
-        <img
-          src="/mascote-um.png"
-          alt="Miguel, o bebê super-herói"
-          className="mx-auto h-auto w-full object-contain"
-        />
-      </div>
+     <div className="animate-float-slow relative mx-auto w-full max-w-[400px]">
+  <div className="pointer-events-none absolute left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/25 blur-[80px] [animation:heroGlow_5s_ease-in-out_infinite]" />
+
+  <div className="pointer-events-none absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-400/20 blur-[60px]" />
+
+  <div className="relative aspect-square">
+    <img
+      src="/mascote-um.png"
+      alt="Miguel, o bebê super-herói"
+      className="h-full w-full object-contain"
+    />
+  </div>
+</div>
 
       <div className="relative mt-8 rounded-[2rem] border border-white/5 bg-white/[0.04] px-8 pb-10 pt-8">
         <p className="mb-3 text-sm font-bold uppercase tracking-[0.5em] text-red-500">
