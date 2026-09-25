@@ -2,7 +2,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { cn } from '@/lib/utils'
 
 const CHECKLIST = [
   'Coragem',
@@ -50,12 +49,7 @@ export function LoadingScreen({
   }, [onComplete])
 
   return (
-    <div
-      className={cn(
-        'fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-hero-ink transition-opacity duration-1000',
-        'opacity-100'
-      )}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-hero-ink opacity-100 transition-opacity duration-1000">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#4f0f14_0%,#160708_45%,#090909_100%)]" />
 
       <div className="relative flex w-full max-w-xl flex-col items-center justify-center px-6 py-10 text-center">
