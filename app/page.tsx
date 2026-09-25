@@ -1,11 +1,11 @@
 'use client'
 
-import { ParticlesBackground } from '@/components/particles-background'
+import { HeroSection } from '@/components/hero-section'
 
 export default function Page() {
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <ParticlesBackground />
+      <HeroSection onStartMission={() => {}} />
     </main>
   )
 }
