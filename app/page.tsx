@@ -38,9 +38,17 @@ export default function Page() {
           Missão Nº 01
         </p>
 
-        <h1 className="text-4xl font-black leading-tight sm:text-5xl">
-          O Incrível Miguel Levi completa 1 aninho!
-        </h1>
+       <h1 className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+  <span className="block">O Incrível</span>
+
+  <span className="block whitespace-nowrap bg-gradient-to-r from-red-500 via-yellow-400 to-red-500 bg-[length:200%_auto] bg-clip-text text-transparent text-[clamp(2rem,10vw,3.75rem)] [animation:shimmer_3s_linear_infinite]">
+    Miguel Levi
+  </span>
+
+  <span className="block whitespace-nowrap">
+    completa 1 aninho!
+  </span>
+</h1>
 
         <p className="mx-auto mt-6 max-w-lg text-lg leading-8 text-white/80">
           Prepare seus poderes! Uma missão muito especial está prestes a
