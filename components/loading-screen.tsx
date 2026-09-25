@@ -18,20 +18,26 @@ export function LoadingScreen({
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((current) => {
-        if (current >= 100) {
-          clearInterval(timer)
-          onComplete()
-          return 100
-        }
+  const startTime = Date.now()
+  const duration = 4200
 
-        return current + 1
-      })
-    }, 40)
+  const timer = setInterval(() => {
+    const elapsed = Date.now() - startTime
+    const nextProgress = Math.min(
+      100,
+      Math.round((elapsed / duration) * 100),
+    )
 
-    return () => clearInterval(timer)
-  }, [onComplete])
+    setProgress(nextProgress)
+
+    if (nextProgress >= 100) {
+      clearInterval(timer)
+      onComplete()
+    }
+  }, 40)
+
+  return () => clearInterval(timer)
+}, [onComplete])
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#111111] text-white">
