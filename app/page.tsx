@@ -20,7 +20,7 @@ export default function Page() {
       </div>
 
       <div
-        className="relative mx-auto w-full max-w-[400px]"
+        className="animate-float-slow relative mx-auto w-full max-w-[400px]"
         style={{
           transform: `translateY(${progress * -32}px)`,
           transition: 'transform 0.1s linear',
