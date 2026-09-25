@@ -1,11 +1,19 @@
 'use client'
 
-import { HeroSection } from '@/components/hero-section'
+import { useParallax } from '@/hooks/use-parallax'
 
 export default function Page() {
+  const { ref, progress } = useParallax<HTMLDivElement>()
+
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <HeroSection onStartMission={() => {}} />
+    <main ref={ref} className="min-h-screen">
+      <div
+        style={{
+          transform: `translateY(${progress * -32}px)`,
+        }}
+      >
+        Teste
+      </div>
     </main>
   )
 }
